@@ -13,6 +13,12 @@
 		<li>
 			<a routerLink='/resume'>Resume </a>
 		</li>
+		<h2>Resume: {{jobIndex}}</h2>
+		<ul>
+			<li *ngFor="let job of jobs">
+				<a routerLink="/resume/{{job.id}}">{{job.title}}</a>
+			</li>
+		</ul>
 	</ul>
 </nav>
 <router-outlet></router-outlet>

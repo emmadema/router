@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import  { ActivatedRoute } from '@angular/router';
+import  { JOBS } from './jobs';
+
 
 @Component({
   selector: 'app-resume',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResumeComponent implements OnInit {
 
-  constructor() { }
+	jobIndex: string = this.route.snapshot.paramMap.get('id');
+	job = JOBS.find( job =>{
+		return job.id === parseInt(this.jobIndex);
+	})
+
+  constructor(
+  	private route : ActivatedRoute //makes URL route avalaible to class
+  ) { }
 
   ngOnInit() {
+
   }
 
 }
